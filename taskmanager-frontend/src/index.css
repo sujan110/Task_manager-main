@@ -1,0 +1,86 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Arial', sans-serif; /* Updated primary font family */
+  color: #333; /* Default text color */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   /* Light background for better readability */
+}
+
+/* Headings Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Arial', sans-serif; /* Font for headings */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+/* Paragraphs and Text */
+p {
+  font-family: 'Roboto', sans-serif; /* Font for paragraph text */
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Code Block Styling */
+code, pre {
+  font-family: 'Fira Code', 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+  background-color: #cc1f1f;
+  color: #e83e8c; /* Highlighted code text color */
+  padding: 0.2rem 0.4rem;
+  border-radius: 5px;
+}
+
+/* Link Styles */
+a {
+  font-family: 'Nunito', sans-serif;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Button Styles */
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  background-color: #4CAF50;
+  color: rgb(223, 34, 34);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Input and Textarea Styles */
+input, textarea {
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* List Styles */
+ul, ol {
+  font-family: 'Lato', sans-serif;
+  padding-left: 20px;
+}
+
+ul li, ol li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Styles */
+

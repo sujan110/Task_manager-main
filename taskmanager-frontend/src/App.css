@@ -1,0 +1,74 @@
+/* Container for App */
+.App {
+  text-align: center;
+  padding: 20px;
+  background-color: #eceff3; /* Light background for contrast */
+  border-radius: 8px;
+ 
+}
+
+/* Logo Styling */
+.App-logo {
+  height: 35vmin;
+  cursor: pointer; /* Change pointer when hovering over the logo */
+  transition: transform 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.App-logo:hover {
+  transform: scale(1.1); /* Scale up the logo slightly on hover */
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 15s cubic-bezier(0.4, 0, 0.2, 1); /* Updated spin speed and easing */
+  }
+}
+
+/* Header Section Styling */
+.App-header {
+  background-color: #aab5c4; /* Darker background for a modern look */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Added gap between elements */
+  font-size: calc(12px + 2vmin); /* Slightly larger text */
+  color: #d4d4d4; /* Softer text color */
+  padding: 40px 20px; /* Added padding for better spacing */
+}
+
+/* Link Styling */
+.App-link {
+  color: #4fa3f7; /* Updated link color for better visibility */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.App-link:hover {
+  color: #1e8feb; /* Darker shade on hover */
+  text-decoration: underline;
+}
+
+/* Keyframes for Logo Spin Animation */
+@keyframes App-logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(10px + 2vmin); /* Adjust font size for smaller devices */
+    padding: 30px 15px;
+  }
+}
