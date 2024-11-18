@@ -116,7 +116,7 @@ function AuthForm() {
                     <input 
                         type="text" 
                         className="input" 
-                        placeholder="Username"
+                        placeholder="Email"
                         value={username}
                         onChange={(e) => handleInputChange(e, setUsername)}
                         required
@@ -129,7 +129,7 @@ function AuthForm() {
                         onChange={(e) => handleInputChange(e, setPassword)}
                         required
                     />
-                    <button className="btn" onClick={handleLogin}>Login</button>
+                    <button className="buttons" onClick={handleLogin}>Login</button>
                     <span className="switch">
                         Don't have an account? 
                         <label htmlFor="signup_toggle" className="signup_tog">Sign Up</label>
@@ -142,7 +142,7 @@ function AuthForm() {
                     <input 
                         type="text" 
                         className="input" 
-                        placeholder="First Name"
+                        placeholder="UserName"
                         value={firstName}
                         onChange={(e) => handleInputChange(e, setFirstName)}
                         required
@@ -150,7 +150,7 @@ function AuthForm() {
                     <input 
                         type="text" 
                         className="input" 
-                        placeholder="Username"
+                        placeholder="Email"
                         value={username}
                         onChange={(e) => handleInputChange(e, setUsername)}
                         required
@@ -171,7 +171,7 @@ function AuthForm() {
                         onChange={(e) => handleInputChange(e, setConfirmPassword)}
                         required
                     />
-                    <button className="btn" onClick={handleSignup}>Signup</button>
+                    <button className="buttons" onClick={handleSignup}>Signup</button>
                     <span className="switch">
                         Already have an account? 
                         <label htmlFor="signup_toggle" className="signup_tog">Sign in</label>

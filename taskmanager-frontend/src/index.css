@@ -59,8 +59,23 @@ button {
   transition: background-color 0.3s ease;
 }
 
+.buttons {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  background-color: #0c0c0c;
+  color: rgb(223, 34, 34);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 button:hover {
   background-color: #45a049;
+}
+.buttons:hover {
+  background-color: #393939;
 }
 
 /* Input and Textarea Styles */

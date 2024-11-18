@@ -209,7 +209,7 @@ function Home() {
             {error && <div className="error-message">{error}</div>}
             
             <div className="header">
-                <h1>Get Things Done  </h1> 
+                <h1 id='title'>Get Things Done  </h1> 
                 <div className="header-buttons">
                     <button onClick={() => setShowAddForm(true)}> New Task</button>
                     <button onClick={handleLogout}>Logout</button>

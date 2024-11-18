@@ -1,6 +1,8 @@
 /* Home Container */
 .home-container {
     padding: 20px;
+    width: 1200px;
+    height: px;
 }
 
 .edit-overlay {
@@ -9,8 +11,8 @@
 }
 /* Header Section */
 .header {
-    width: 100%;
-    background: linear-gradient(135deg, #e0dfef 0%, #9fa8b7 100%);
+    width: screen;
+    background: linear-gradient(135deg, #74c86b 0%, #759ada 100%);
     padding: 2rem 2.5rem;
     border-radius: 8px;
     display: flex;
@@ -20,7 +22,10 @@
     font-size: 2.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     margin-bottom: 2rem;
+    margin-top:0rem;
+    
 }
+
 
 /* Header Title */
 .header h1 {
