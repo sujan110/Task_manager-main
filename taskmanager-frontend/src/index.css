@@ -66,7 +66,7 @@ button:hover {
 /* Input and Textarea Styles */
 input, textarea {
   font-family: 'Open Sans', sans-serif;
-  border: 1px solid #ddd;
+  border: 1px solid #7c7575;
   padding: 10px;
   border-radius: 4px;
   width: 100%;

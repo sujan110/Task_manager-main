@@ -31,18 +31,18 @@ function AuthForm() {
     const handleLogin = async (e) => {
         e.preventDefault();
         setError('');
-        
+
         if (!username || !password) {
             setError("Please enter both username and password");
             return;
         }
-    
+
         try {
-            const response = await axios.post('login/', {
+            const response = await axios.post('http://localhost:8000/api/users/login/', {
                 username,
                 password
             });
-            
+
             if (response.status === 200) {
                 localStorage.setItem('username', response.data.username);
                 navigate('/home');
@@ -52,15 +52,16 @@ function AuthForm() {
             setError(error.response?.data?.message || 'Login failed');
         }
     };
+
     const handleSignup = async (e) => {
         e.preventDefault();
         setError('');
-        
+
         if (!username || !password || !confirmPassword || !firstName) {
             setError("All fields are required");
             return;
         }
-        
+
         if (password !== confirmPassword) {
             setError("Passwords don't match");
             return;
@@ -70,24 +71,18 @@ function AuthForm() {
             setError("Password must be at least 8 characters long");
             return;
         }
-        
+
         try {
             const response = await axios.post('http://localhost:8000/api/users/register/', {
                 username,
                 password,
-                confirm_password: confirmPassword,
                 first_name: firstName
-            }, {
-                withCredentials: true,
-                headers: {
-                    'Content-Type': 'application/json',
-                }
             });
-            
+
             if (response.status === 201) {
                 alert('Registration successful! Please login.');
-                document.getElementById('signup_toggle').checked = false;
                 resetForm();
+                document.getElementById('signup_toggle').checked = false;
             }
         } catch (error) {
             console.error('Signup error:', error.response?.data);
@@ -96,16 +91,7 @@ function AuthForm() {
     };
 
     const handleError = (error) => {
-        if (error.response?.data?.message) {
-            setError(error.response.data.message);
-        } else if (error.response?.data) {
-            const errorMessage = typeof error.response.data === 'string' 
-                ? error.response.data 
-                : Object.values(error.response.data)[0];
-            setError(Array.isArray(errorMessage) ? errorMessage[0] : errorMessage);
-        } else {
-            setError("An error occurred. Please try again.");
-        }
+        setError(error.response?.data?.message || "An error occurred. Please try again.");
     };
 
     const resetForm = () => {
@@ -143,18 +129,16 @@ function AuthForm() {
                         onChange={(e) => handleInputChange(e, setPassword)}
                         required
                     />
-                    <button type="button" className="btn" onClick={handleLogin}>Login</button>
+                    <button className="btn" onClick={handleLogin}>Login</button>
                     <span className="switch">
                         Don't have an account? 
-                        <label htmlFor="signup_toggle" className="signup_tog">
-                            Sign Up
-                        </label>
+                        <label htmlFor="signup_toggle" className="signup_tog">Sign Up</label>
                     </span>
                     {error && <div className="error-message">{error}</div>}
                 </div>
 
                 <div className="form_back">
-                    <div className="form_details">SignUp</div>
+                    <div className="form_details">Sign Up</div>
                     <input 
                         type="text" 
                         className="input" 
@@ -187,12 +171,10 @@ function AuthForm() {
                         onChange={(e) => handleInputChange(e, setConfirmPassword)}
                         required
                     />
-                    <button type="button" className="btn" onClick={handleSignup}>Signup</button>
+                    <button className="btn" onClick={handleSignup}>Signup</button>
                     <span className="switch">
                         Already have an account? 
-                        <label htmlFor="signup_toggle" className="signup_tog">
-                            Sign In
-                        </label>
+                        <label htmlFor="signup_toggle" className="signup_tog">Sign in</label>
                     </span>
                     {error && <div className="error-message">{error}</div>}
                 </div>

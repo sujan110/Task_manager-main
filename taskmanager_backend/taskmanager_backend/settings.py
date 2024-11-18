@@ -60,9 +60,9 @@ WSGI_APPLICATION = 'taskmanager_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'task_management',
+        'NAME': 'taskmanagement',
         'USER': 'root',
-        'PASSWORD': 'Admin',
+        'PASSWORD': 'Sujan@123',
         'HOST': 'localhost',
         'PORT': '3306',
     }

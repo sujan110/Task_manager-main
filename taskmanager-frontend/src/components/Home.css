@@ -1,16 +1,23 @@
 /* Home Container */
+.home-container {
+    padding: 20px;
+}
 
+.edit-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
 
+}
 /* Header Section */
 .header {
     width: 100%;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #e0dfef 0%, #9fa8b7 100%);
     padding: 2rem 2.5rem;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: #1a1616;
+    font-size: 2.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     margin-bottom: 2rem;
 }
@@ -40,7 +47,7 @@
     border-radius: 25px;
     cursor: pointer;
     color: #fff;
-    background-color: #00bcd4;
+    background-color: #f71d1dad;
     box-shadow: 0 8px 16px rgba(0, 188, 212, 0.4);
     transition: all 0.3s ease-in-out;
 }

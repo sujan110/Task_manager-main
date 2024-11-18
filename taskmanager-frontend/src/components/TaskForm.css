@@ -7,75 +7,87 @@ body {
     align-items: center;
     background-color: #f4f5f7;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.4s ease;
 }
 
+/* Task Form Container */
 .task-form {
     width: 100%;
     max-width: 800px;
-    background-color: #ffffff;
+    background-color: #272727;
     padding: 2.5rem;
     margin: 2rem auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    animation: fadeIn 0.6s ease-in-out;
 }
 
-.edit-form {
-    margin: 0;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 90%;
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Form Fields */
 .form-field {
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.task-form form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    width: 100%;
-}
-
+/* Styling for Input, Textarea, Select */
 .task-form input,
 .task-form textarea,
 .task-form select {
     width: 100%;
-    padding: 0.875rem;
-    border: 2px solid #e0e4e7;
-    background-color: #ffffff;
+    box-sizing: border-box; /* Ensure border and padding are included in width */
+    padding: 1rem;
     font-weight: 500;
     font-size: 1rem;
-    border-radius: 6px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #e0e4e7;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #333;
+    transition: all 0.3s ease;
 }
 
+/* Consistent Height for all Fields */
+.task-form input,
+.task-form select {
+    height: 50px;
+}
+
+.task-form textarea {
+    height: 50px; /* Matches input/select height */
+    resize: none; /* Disable resizing to keep size consistent */
+}
+
+/* Focus Effect */
 .task-form input:focus,
 .task-form textarea:focus,
 .task-form select:focus {
     outline: none;
     border-color: #296fbb;
-    box-shadow: 0 0 0 3px rgba(41, 111, 187, 0.2);
+    box-shadow: 0 0 0 4px rgba(41, 111, 187, 0.2);
 }
 
-.task-form textarea {
-    height: 120px;
-    resize: vertical;
-    min-height: 50px;
-}
-
+/* Custom Select Dropdown Arrow */
 .task-form select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='gray'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 2.5rem;
     cursor: pointer;
 }
 
+/* Form Buttons */
 .form-buttons {
     display: flex;
     gap: 1rem;
@@ -85,44 +97,52 @@ body {
 
 .form-buttons button {
     min-width: 150px;
-    padding: 0.75rem;
-    text-align: center;
+    padding: 0.8rem;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    border-radius: 6px;
-    background-color: #296fbb;
+    border-radius: 8px;
+    background-color: #3dd513bd;
     color: #ffffff;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Hover and Ripple Effect for Buttons */
 .form-buttons button:hover {
     background-color: #235a9e;
+    box-shadow: 0 4px 15px rgba(35, 90, 158, 0.3);
 }
 
-.form-buttons button[type="button"] {
-    background-color: #ff4b5c;
+.form-buttons button::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
 }
 
-.form-buttons button[type="button"]:hover {
-    background-color: #d43d4e;
+.form-buttons button:active::after {
+    transform: translate(-50%, -50%) scale(1);
 }
 
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .task-form {
         padding: 2rem;
         max-width: 600px;
     }
-
-    .edit-form {
-        padding: 1.5rem;
-        width: 95%;
-    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .task-form {
         padding: 1.5rem;
     }
@@ -130,9 +150,7 @@ body {
     .task-form input,
     .task-form textarea,
     .task-form select {
-        padding: 0.75rem;
         font-size: 0.95rem;
-        height: 45px;
     }
 
     .form-buttons {
@@ -142,22 +160,14 @@ body {
 
     .form-buttons button {
         width: 100%;
-        min-width: unset;
-        padding: 0.75rem;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 480px) {
     .task-form input,
     .task-form textarea,
     .task-form select {
-        font-size: 0.9rem;
-        height: 40px;
-    }
-
-    .form-buttons button {
-        font-size: 0.85rem;
-        padding: 0.65rem;
+        padding: 0.75rem;
     }
 }
