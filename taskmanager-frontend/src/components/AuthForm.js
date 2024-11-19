@@ -74,9 +74,15 @@ function AuthForm() {
 
         try {
             const response = await axios.post('http://localhost:8000/api/users/register/', {
-                username,
-                password,
-                first_name: firstName
+                username: username,
+                password: password,
+                first_name: firstName,
+                confirm_password: confirmPassword
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                withCredentials: true
             });
 
             if (response.status === 201) {
@@ -85,13 +91,43 @@ function AuthForm() {
                 document.getElementById('signup_toggle').checked = false;
             }
         } catch (error) {
-            console.error('Signup error:', error.response?.data);
-            handleError(error);
+            console.error('Signup error:', error);
+            
+            if (error.response?.data) {
+                if (error.response.data.message) {
+                    if (typeof error.response.data.message === 'object') {
+                        const messages = Object.values(error.response.data.message);
+                        setError(messages[0]);
+                    } else {
+                        setError(error.response.data.message);
+                    }
+                } else if (typeof error.response.data === 'string') {
+                    setError(error.response.data);
+                } else {
+                    const firstErrorField = Object.keys(error.response.data)[0];
+                    const firstError = error.response.data[firstErrorField];
+                    setError(Array.isArray(firstError) ? firstError[0] : firstError);
+                }
+            } else {
+                setError('An error occurred during registration. Please try again.');
+            }
         }
     };
 
     const handleError = (error) => {
-        setError(error.response?.data?.message || "An error occurred. Please try again.");
+        if (error.response?.data) {
+            if (typeof error.response.data === 'string') {
+                setError(error.response.data);
+            } else if (error.response.data.message) {
+                setError(typeof error.response.data.message === 'string' 
+                    ? error.response.data.message 
+                    : 'An error occurred during registration');
+            } else {
+                setError('An error occurred during registration');
+            }
+        } else {
+            setError('An error occurred. Please try again.');
+        }
     };
 
     const resetForm = () => {
